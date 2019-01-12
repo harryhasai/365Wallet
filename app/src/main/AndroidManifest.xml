@@ -45,7 +45,9 @@
             android:value="" />
         <service android:name="com.amap.api.location.APSService" /><!--定位需要的服务-->
 
-        <activity android:name=".function.main.MainActivity" />
+        <activity
+            android:name=".function.main.MainActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".function.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,6 +55,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".function.forget_password.ForgetPasswordActivity" />
+        <activity android:name=".function.register.RegisterActivity" />
     </application>
 
 </manifest>

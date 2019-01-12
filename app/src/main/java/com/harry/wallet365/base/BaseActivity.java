@@ -1,5 +1,9 @@
 package com.harry.wallet365.base;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +12,7 @@ import com.harry.wallet365.R;
 import com.harry.wallet365.application.WalletApplication;
 import com.harry.wallet365.base.presenter.BasePresenter;
 import com.harry.wallet365.base.view.BaseActivityImpl;
+import com.harry.wallet365.function.login.LoginActivity;
 import com.harry.wallet365.rx.DisposableManager;
 import com.jaeger.library.StatusBarUtil;
 
@@ -34,7 +39,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends BaseActivity
         //只是手机竖屏显示
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //设置状态栏颜色
-        StatusBarUtil.setColor(this, getResources().getColor(R.color.app_status_bar_color), 0);
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.black1), 0);
 
         initView();
 
@@ -67,6 +72,23 @@ public abstract class BaseActivity<P extends BasePresenter> extends BaseActivity
                 DisposableManager.get().cancel(tag);
             }
         }
+    }
+
+    protected void showLoginDialog(final Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("登录失效, 是否重新登录");
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                context.startActivity(new Intent(context, LoginActivity.class));
+                dialog.dismiss();
+            }
+        }).show();
     }
 
 }
