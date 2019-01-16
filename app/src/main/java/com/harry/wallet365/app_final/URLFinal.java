@@ -25,5 +25,17 @@ public class URLFinal {
      * 忘记密码
      */
     public static final String FORGET_PASSWORD = "api/entry/iforget";
+    /**
+     * 获取轮播图
+     */
+    public static final String HOME_GET_BANNER = "api/index/getSlidePage";
+    /**
+     * 获取促销活动列表分页
+     */
+    public static final String HOME_GET_BOTTOM_LIST = "api/index/getActPage";
+    /**
+     * 获取附近优惠券分页
+     */
+    public static final String HOME_GET_COUPON = "api/index/getVoucherPage";
 
 }

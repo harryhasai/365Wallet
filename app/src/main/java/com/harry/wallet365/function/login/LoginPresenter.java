@@ -44,12 +44,7 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                         view.startActivity(intent);
                         view.finish();
                         break;
-                    case CodeFinal.RESPONSE_NEED_LOGIN:
-                        break;
-                    case CodeFinal.RESPONSE_MISSING_PARAM:
-                        ToastUtils.showShort("缺失参数");
-                        break;
-                    case CodeFinal.RESPONSE_ERROR:
+                    default:
                         ToastUtils.showShort(shopLoginEntity.msg);
                         break;
                 }
@@ -84,12 +79,7 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                         view.startActivity(intent);
                         view.finish();
                         break;
-                    case CodeFinal.RESPONSE_NEED_LOGIN:
-                        break;
-                    case CodeFinal.RESPONSE_MISSING_PARAM:
-                        ToastUtils.showShort("缺失参数");
-                        break;
-                    case CodeFinal.RESPONSE_ERROR:
+                    default:
                         ToastUtils.showShort(customerLoginEntity.msg);
                         break;
                 }

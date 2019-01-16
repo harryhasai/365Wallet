@@ -42,7 +42,7 @@
         <!--高德地图配置-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="" />
+            android:value="d5e72db43cc19a90d9528e2760a2e65c" />
         <service android:name="com.amap.api.location.APSService" /><!--定位需要的服务-->
 
         <activity
@@ -57,6 +57,8 @@
         </activity>
         <activity android:name=".function.forget_password.ForgetPasswordActivity" />
         <activity android:name=".function.register.RegisterActivity" />
+        <activity android:name=".function.web_page.WebViewPageActivity" />
+        <activity android:name=".function.modify_location.ModifyLocationActivity" />
     </application>
 
 </manifest>

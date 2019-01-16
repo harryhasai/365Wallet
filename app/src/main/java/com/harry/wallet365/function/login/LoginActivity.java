@@ -125,12 +125,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> {
             ToastUtils.showShort("密码不能为空");
             return;
         }
-        if (tabPosition >= 0) {
-            if (tabPosition == 1) {
-                mPresenter.customerLogin(username, password);
-            } else {
-                mPresenter.shopLogin(username, password);
-            }
+        if (tabPosition == 1) {
+            mPresenter.customerLogin(username, password);
+        } else {
+            mPresenter.shopLogin(username, password);
         }
     }
 

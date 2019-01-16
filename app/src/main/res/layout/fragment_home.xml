@@ -28,7 +28,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
                 android:includeFontPadding="false"
-                android:text="广州市"
                 android:textColor="#ff333333"
                 android:textSize="15sp" />
 
