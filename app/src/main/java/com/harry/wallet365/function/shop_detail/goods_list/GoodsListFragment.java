@@ -1,5 +1,6 @@
 package com.harry.wallet365.function.shop_detail.goods_list;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.harry.wallet365.R;
 import com.harry.wallet365.app_final.DisposableFinal;
 import com.harry.wallet365.base.BaseFragment;
+import com.harry.wallet365.function.shop_detail.goods_detail.GoodsDetailActivity;
 import com.harry.wallet365.network.entity.GoodsListEntity;
 import com.harry.wallet365.utils.SwipeRefreshLayoutRefreshingUtil;
 
@@ -100,6 +102,16 @@ public class GoodsListFragment extends BaseFragment<GoodsListPresenter> {
 
             }
         }, recyclerView);
+
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                GoodsListEntity.DataBean.ListBean bean = (GoodsListEntity.DataBean.ListBean) adapter.getData().get(position);
+                Intent intent = new Intent(mActivity, GoodsDetailActivity.class);
+                intent.putExtra("goodsId", String.valueOf(bean.id));
+                startActivity(intent);
+            }
+        });
     }
 
     public void getGoodsList(GoodsListEntity.DataBean data) {

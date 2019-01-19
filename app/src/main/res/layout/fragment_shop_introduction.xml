@@ -1,11 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:ignore="HardcodedText">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="商家介绍"/>
-</LinearLayout>
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:includeFontPadding="false"
+            android:text="最美新娘-寻找妮可里奇"
+            android:textColor="#ff333333"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center_vertical">
+
+            <com.harry.wallet365.utils.StarView
+                android:id="@+id/star_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_distance_and_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:text="|  500m  |  9:00-18:00"
+                android:textColor="#ff666666"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="#F8F8F8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="19dp"
+                android:src="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:text="广州市黄埔区科学城创意大厦"
+                android:textColor="#333333"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:src="@drawable/ic_navigation_right" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="15dp"
+            android:background="#F8F8F8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_tel_black" />
+
+            <TextView
+                android:id="@+id/tv_tel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:text="13672222222"
+                android:textColor="#333333"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="17dp"
+            android:background="#F8F8F8" />
+
+        <TextView
+            android:id="@+id/tv_html"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+</ScrollView>

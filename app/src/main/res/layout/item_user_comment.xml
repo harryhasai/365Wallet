@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:ignore="HardcodedText">
+
+    <ImageView
+        android:id="@+id/iv_header"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/iv_header"
+        android:includeFontPadding="false"
+        android:text="绿意"
+        android:textColor="#ff333333"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="16dp"
+        android:includeFontPadding="false"
+        android:text="20181020 10:20"
+        android:textColor="#ff999999"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_username"
+        android:layout_alignStart="@id/tv_username"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="18dp"
+        android:includeFontPadding="false"
+        android:text="这个商家非常好，服务也很到位，很享受的一次体验，下次带朋友来。发几张图大家看看"
+        android:textColor="#ff666666"
+        android:textSize="15sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_img_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_content"
+        android:layout_alignStart="@id/tv_username"
+        android:layout_marginTop="16dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_container1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rv_img_list"
+        android:layout_alignStart="@id/tv_username"
+        android:layout_marginTop="17dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="推荐评分："
+            android:textColor="#ff666666"
+            android:textSize="13sp" />
+
+        <com.harry.wallet365.utils.StarView
+            android:id="@+id/star_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_container2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_container1"
+        android:layout_alignStart="@id/tv_username"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="环境评分："
+            android:textColor="#ff666666"
+            android:textSize="13sp" />
+
+        <com.harry.wallet365.utils.StarView
+            android:id="@+id/star_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_container3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_container2"
+        android:layout_alignStart="@id/tv_username"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="服务评分："
+            android:textColor="#ff666666"
+            android:textSize="13sp" />
+
+        <com.harry.wallet365.utils.StarView
+            android:id="@+id/star_view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/ll_container3"
+        android:layout_alignStart="@id/tv_username"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="7dp"
+        android:background="#f8f8f8" />
+</RelativeLayout>

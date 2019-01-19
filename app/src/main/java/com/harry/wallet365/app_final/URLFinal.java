@@ -53,5 +53,13 @@ public class URLFinal {
      * 获取商家的商品分页
      */
     public static final String GET_GOODS_LIST = "api/seller/getProductPage";
+    /**
+     * 获取商家详情
+     */
+    public static final String GET_GOODS_DETAIL = "api/seller/getProduct";
+    /**
+     * 获取商家的用户评价分页
+     */
+    public static final String GET_COMMENT_LIST = "api/seller/getCommentPage";
 
 }

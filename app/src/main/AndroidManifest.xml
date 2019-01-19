@@ -76,6 +76,7 @@
         <activity android:name=".function.web_page.WebViewPageActivity" />
         <activity android:name=".function.modify_location.ModifyLocationActivity" />
         <activity android:name=".function.shop_detail.ShopDetailActivity" />
+        <activity android:name=".function.shop_detail.goods_detail.GoodsDetailActivity" />
 
     </application>
 

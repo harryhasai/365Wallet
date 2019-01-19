@@ -69,6 +69,7 @@ public class ShopDetailActivity extends BaseActivity<ShopDetailPresenter> {
     private int isShowCoupon;
     private AlertDialog couponDialog;
     private int sellerId;
+    private String location;
 
     @Override
     protected int setupView() {
@@ -80,7 +81,7 @@ public class ShopDetailActivity extends BaseActivity<ShopDetailPresenter> {
         ButterKnife.bind(this);
         tvTitle.setText("商家详情");
 
-        String location = getIntent().getStringExtra("location");
+        location = getIntent().getStringExtra("location");
         sellerId = getIntent().getIntExtra("sellerId", 0);
         isShowCoupon = getIntent().getIntExtra("isShowCoupon", 0);
 
@@ -197,12 +198,14 @@ public class ShopDetailActivity extends BaseActivity<ShopDetailPresenter> {
         GoodsListFragment goodsListFragment = new GoodsListFragment();
         Bundle goodsBundle = new Bundle();
         goodsBundle.putString("sellerId", String.valueOf(sellerId));
+        goodsBundle.putString("location", location);
         goodsListFragment.setArguments(goodsBundle);
         fragmentList.add(goodsListFragment);
         UserCommentFragment userCommentFragment = new UserCommentFragment();
         userCommentFragment.setArguments(goodsBundle);
         fragmentList.add(userCommentFragment);
         ShopIntroductionFragment shopIntroductionFragment = new ShopIntroductionFragment();
+        shopIntroductionFragment.setArguments(goodsBundle);
         fragmentList.add(shopIntroductionFragment);
         tabLayout.setTabData(tabList, this, R.id.fl_container, fragmentList);
 
