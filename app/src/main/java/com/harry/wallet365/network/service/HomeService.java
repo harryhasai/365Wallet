@@ -2,6 +2,7 @@ package com.harry.wallet365.network.service;
 
 import com.harry.wallet365.network.entity.HomeBannerEntity;
 import com.harry.wallet365.network.entity.HomeCouponEntity;
+import com.harry.wallet365.network.entity.HomeUseCouponEntity;
 
 import java.util.Map;
 
@@ -28,4 +29,7 @@ public interface HomeService {
     @POST
     Observable<HomeBannerEntity> getBottomList(@Url String url, @FieldMap Map<String, String> params);
 
+    @FormUrlEncoded
+    @POST
+    Observable<HomeUseCouponEntity> useCoupon(@Url String url, @FieldMap Map<String, String> params);
 }

@@ -1,12 +1,21 @@
 package com.harry.wallet365.function.home;
 
+import android.graphics.Bitmap;
+import android.os.Environment;
+
 import com.blankj.utilcode.util.ToastUtils;
 import com.harry.wallet365.app_final.CodeFinal;
 import com.harry.wallet365.app_final.DisposableFinal;
 import com.harry.wallet365.base.presenter.BasePresenter;
 import com.harry.wallet365.network.entity.HomeBannerEntity;
 import com.harry.wallet365.network.entity.HomeCouponEntity;
+import com.harry.wallet365.network.entity.HomeUseCouponEntity;
 import com.harry.wallet365.rx.DisposableManager;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -106,4 +115,48 @@ public class HomePresenter extends BasePresenter<HomeFragment> {
             }
         });
     }
+
+    public void useCoupon(String voucherId) {
+        model.useCoupon(voucherId, new Observer<HomeUseCouponEntity>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                DisposableManager.get().add(DisposableFinal.HOME_FRAGMENT_USE_COUPON, d);
+            }
+
+            @Override
+            public void onNext(HomeUseCouponEntity homeUseCouponEntity) {
+                if (homeUseCouponEntity.code == CodeFinal.RESPONSE_SUCCESS) {
+                    view.useCoupon(homeUseCouponEntity.data);
+                } else {
+                    ToastUtils.showShort(homeUseCouponEntity.msg);
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                ToastUtils.showShort("领取优惠券失败");
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
+    public File saveBitmapFile(Bitmap bitmap) {
+        File file;//将要保存图片的路径
+        try {
+            file = new File(Environment.getExternalStorageDirectory().getAbsolutePath());//将要保存图片的路径
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+            bos.flush();
+            bos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return file;
+    }
+
 }

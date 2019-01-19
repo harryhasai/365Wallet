@@ -1,10 +1,15 @@
 package com.harry.wallet365.function.home;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.harry.wallet365.R;
 import com.harry.wallet365.function.web_page.WebViewPageActivity;
@@ -57,6 +62,10 @@ public class HomeAdapter extends BaseMultiItemQuickAdapter<HomeMultiItem, BaseVi
         rvCoupon.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
         couponAdapter = new HomeCouponAdapter(R.layout.item_coupon);
         rvCoupon.setAdapter(couponAdapter);
+    }
+
+    public void setOnCouponItemClickListener(OnItemClickListener listener) {
+        couponAdapter.setOnItemClickListener(listener);
     }
 
     private void initBottomList(BaseViewHolder helper) {

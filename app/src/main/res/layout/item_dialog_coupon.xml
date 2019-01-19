@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/shape_coupon_list_item"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/tv_coupon_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:includeFontPadding="false"
+        android:text="大礼包优惠券"
+        android:textColor="#ffffffff"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_meet_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_coupon_name"
+        android:layout_alignStart="@id/tv_coupon_name"
+        android:layout_marginTop="10dp"
+        android:includeFontPadding="false"
+        android:text="满200.00元可用"
+        android:textColor="#ffffffff"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_meet_amount"
+        android:layout_alignStart="@id/tv_coupon_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="17dp"
+        android:includeFontPadding="false"
+        android:text="有效期至2018/10/12"
+        android:textColor="#ffffffff"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_coupon_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:includeFontPadding="false"
+        android:text="80元"
+        android:textColor="#ffffffff"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_get"
+        android:layout_width="90dp"
+        android:layout_height="29dp"
+        android:layout_alignBottom="@id/tv_time"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="-2dp"
+        android:background="@drawable/shape_coupon_list_item_button"
+        android:text="领取"
+        android:textColor="#ff333333"
+        android:textSize="15sp" />
+</RelativeLayout>

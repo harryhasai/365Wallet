@@ -48,7 +48,8 @@
             android:layout_marginEnd="5dp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:src="@drawable/ic_scan" />
+            android:src="@drawable/ic_scan"
+            android:visibility="gone" />
     </FrameLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout

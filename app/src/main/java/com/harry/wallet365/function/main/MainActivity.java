@@ -1,12 +1,12 @@
 package com.harry.wallet365.function.main;
 
-import android.Manifest;
 import android.support.v4.app.Fragment;
 import android.widget.FrameLayout;
 
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.harry.wallet365.R;
+import com.harry.wallet365.app_final.UserInfo;
 import com.harry.wallet365.base.BaseActivity;
 import com.harry.wallet365.base.presenter.BasePresenter;
 import com.harry.wallet365.function.cash.CashFragment;
@@ -14,15 +14,12 @@ import com.harry.wallet365.function.discount.DiscountFragment;
 import com.harry.wallet365.function.home.HomeFragment;
 import com.harry.wallet365.function.mine.MineFragment;
 import com.harry.wallet365.function.nearby.NearbyFragment;
-import com.harry.wallet365.function.shopping.ShoppingFragment;
-import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.harry.wallet365.utils.SPUtils;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 
 public class MainActivity extends BaseActivity {
 
@@ -60,7 +57,6 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         ButterKnife.bind(this);
 
-        registerPermission();
         initTabLayout();
     }
 
@@ -75,18 +71,18 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initTabLayout() {
-        String type = getIntent().getStringExtra("type");
+        int type = SPUtils.getInt(UserInfo.LOGIN_TYPE.name(), 0);
 
         ArrayList<CustomTabEntity> tabList = new ArrayList<>();
         ArrayList<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new HomeFragment());
         fragmentList.add(new NearbyFragment());
-        if (type.equals("shop")) {
+        if (type == 1) {    //商家登录
             for (int i = 0; i < mCustomerTitles.length; i++) {
                 tabList.add(new TabEntity(mShopTitles[i], mShopIconSelectIds[i], mShopIconUnSelectIds[i]));
             }
             fragmentList.add(new CashFragment());
-        } else {
+        } else if (type == 2){  //普通用户登录
             for (int i = 0; i < mCustomerTitles.length; i++) {
                 tabList.add(new TabEntity(mCustomerTitles[i], mCustomerIconSelectIds[i], mCustomerIconUnSelectIds[i]));
             }
@@ -122,38 +118,6 @@ public class MainActivity extends BaseActivity {
         @Override
         public int getTabUnselectedIcon() {
             return unSelectedIcon;
-        }
-    }
-
-    private Disposable mDisposable;
-    private void registerPermission() {
-        RxPermissions rxPermissions = new RxPermissions(this);
-        mDisposable = rxPermissions.request(Manifest.permission.CAMERA,
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.CALL_PHONE,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .subscribe(new Consumer<Boolean>() {
-                    @Override
-                    public void accept(Boolean aBoolean) throws Exception {
-                        if (aBoolean) {
-                            //当所有权限都允许之后，返回true
-                        } else {
-                            //只要有一个权限禁止，返回false，
-                            //下一次申请只申请没通过申请的权限
-                            finish();
-                        }
-                    }
-                });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mDisposable != null && !mDisposable.isDisposed()) {
-            mDisposable.dispose();
         }
     }
 

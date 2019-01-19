@@ -40,8 +40,9 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                     case CodeFinal.RESPONSE_SUCCESS:
                         cacheShopInfo(shopLoginEntity.data);
                         Intent intent = new Intent(view, MainActivity.class);
-                        intent.putExtra("type", "shop");
                         view.startActivity(intent);
+                        SPUtils.putInt(UserInfo.LOGIN_TYPE.name(), 1);
+                        SPUtils.putBoolean(UserInfo.IS_LOGIN.name(), true);
                         view.finish();
                         break;
                     default:
@@ -75,7 +76,8 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
                     case CodeFinal.RESPONSE_SUCCESS:
                         cacheCustomerInfo(customerLoginEntity.data);
                         Intent intent = new Intent(view, MainActivity.class);
-                        intent.putExtra("type", "customer");
+                        SPUtils.putBoolean(UserInfo.IS_LOGIN.name(), true);
+                        SPUtils.putInt(UserInfo.LOGIN_TYPE.name(), 2);
                         view.startActivity(intent);
                         view.finish();
                         break;
@@ -112,7 +114,7 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
      * @param data 缓存店家信息
      */
     private void cacheShopInfo(ShopLoginEntity.DataBean data) {
-        SPUtils.putString(UserInfo.SHOP_TOKEN.name(), data.token);
+        SPUtils.putString(UserInfo.TOKEN.name(), data.token);
         SPUtils.putString(UserInfo.SHOP_NAME.name(), data.shopName);
         SPUtils.putString(UserInfo.SHOP_MOBILE.name(), data.mobile);
     }

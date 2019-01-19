@@ -1,11 +1,14 @@
 package com.harry.wallet365.function.home;
 
 import com.harry.wallet365.app_final.URLFinal;
+import com.harry.wallet365.app_final.UserInfo;
 import com.harry.wallet365.base.model.BaseModel;
 import com.harry.wallet365.network.entity.HomeBannerEntity;
 import com.harry.wallet365.network.entity.HomeCouponEntity;
+import com.harry.wallet365.network.entity.HomeUseCouponEntity;
 import com.harry.wallet365.network.service.HomeService;
 import com.harry.wallet365.utils.RetrofitHelper;
+import com.harry.wallet365.utils.SPUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,6 +60,18 @@ public class HomeModel extends BaseModel {
         params.put("location", location);
 
         service.getCoupon(URLFinal.HOME_GET_COUPON, params)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    public void useCoupon(String voucherId, Observer<HomeUseCouponEntity> observer) {
+        Map<String, String> params = new HashMap<>();
+
+        params.put("token", SPUtils.getString(UserInfo.TOKEN.name(), ""));
+        params.put("voucherId", voucherId);
+
+        service.useCoupon(URLFinal.HOME_USE_COUPON, params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);

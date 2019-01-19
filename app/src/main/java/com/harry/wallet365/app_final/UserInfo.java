@@ -5,7 +5,11 @@ package com.harry.wallet365.app_final;
  */
 public enum UserInfo {
 
-    IS_FIRST_LOGIN,
+    IS_LOGIN,
+    /**
+     * 商家登录或者普通会员登录
+     */
+    LOGIN_TYPE,
     TOKEN,
     HEAD_IMG,
     /**
@@ -17,4 +21,5 @@ public enum UserInfo {
     SHOP_MOBILE,
     SHOP_NAME,
     SHOP_TOKEN,
+    LOCATION_HISTORY,
 }

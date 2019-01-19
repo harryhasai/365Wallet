@@ -45,20 +45,39 @@
             android:value="d5e72db43cc19a90d9528e2760a2e65c" />
         <service android:name="com.amap.api.location.APSService" /><!--定位需要的服务-->
 
+        <!--分享需要配置的-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.harry.wallet365.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+
         <activity
-            android:name=".function.main.MainActivity"
-            android:launchMode="singleTask" />
-        <activity android:name=".function.login.LoginActivity">
+            android:name=".function.splash.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBarWithBackGround">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".function.main.MainActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".function.login.LoginActivity">
+
+        </activity>
         <activity android:name=".function.forget_password.ForgetPasswordActivity" />
         <activity android:name=".function.register.RegisterActivity" />
         <activity android:name=".function.web_page.WebViewPageActivity" />
         <activity android:name=".function.modify_location.ModifyLocationActivity" />
+        <activity android:name=".function.shop_detail.ShopDetailActivity" />
+
     </application>
+
 
 </manifest>

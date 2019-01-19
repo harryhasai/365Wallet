@@ -37,5 +37,21 @@ public class URLFinal {
      * 获取附近优惠券分页
      */
     public static final String HOME_GET_COUPON = "api/index/getVoucherPage";
+    /**
+     * 领取优惠券
+     */
+    public static final String HOME_USE_COUPON = "api/voucher/getVoucher";
+    /**
+     * 获取商家详情
+     */
+    public static final String GET_SHOP_DETAIL = "api/seller/getSeller";
+    /**
+     * 获取商家的优惠券分页
+     */
+    public static final String GET_SHOP_DETAIL_COUPON = "api/voucher/getVoucherPage";
+    /**
+     * 获取商家的商品分页
+     */
+    public static final String GET_GOODS_LIST = "api/seller/getProductPage";
 
 }
