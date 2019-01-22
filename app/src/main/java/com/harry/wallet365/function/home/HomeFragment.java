@@ -24,6 +24,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.harry.wallet365.R;
 import com.harry.wallet365.app_final.CodeFinal;
 import com.harry.wallet365.app_final.DisposableFinal;
+import com.harry.wallet365.app_final.UserInfo;
 import com.harry.wallet365.base.BaseFragment;
 import com.harry.wallet365.function.modify_location.ModifyLocationActivity;
 import com.harry.wallet365.function.shop_detail.ShopDetailActivity;
@@ -31,6 +32,7 @@ import com.harry.wallet365.network.entity.HomeBannerEntity;
 import com.harry.wallet365.network.entity.HomeCouponEntity;
 import com.harry.wallet365.network.entity.HomeUseCouponEntity;
 import com.harry.wallet365.utils.LocationUtil;
+import com.harry.wallet365.utils.SPUtils;
 import com.harry.wallet365.utils.SwipeRefreshLayoutRefreshingUtil;
 
 import java.io.File;
@@ -141,6 +143,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
                 location = aMapLocation.getLongitude() + "," + aMapLocation.getLatitude();
                 mPresenter.getCoupon(location);
                 isLocation = true;
+                SPUtils.putString(UserInfo.CITY.name(), city);
+                SPUtils.putString(UserInfo.CURRENT_LOCATION.name(), location);
             } else if (aMapLocation.getErrorCode() == 13) {
                 //当前网络无法定位, 提示用户开启GPS
                 if (!isGoToSettingLocation) {
@@ -269,6 +273,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
             String cityName = data.getStringExtra("cityName");
             city = cityName;
             tvLocation.setText(city);
+            SPUtils.putString(UserInfo.CITY.name(), city);
             LocationUtil.getLocationFromCityName(mActivity, cityName, new GeocodeSearch.OnGeocodeSearchListener() {
                 @Override
                 public void onRegeocodeSearched(RegeocodeResult regeocodeResult, int i) {
@@ -286,6 +291,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
                             String adcode = geocodeAddress.getAdcode();//区域编码
                             location = longitude + "," + latitude;
                             mPresenter.getCoupon(location);
+                            SPUtils.putString(UserInfo.CURRENT_LOCATION.name(), location);
                         } else {
                             ToastUtils.showShort("地址名出错");
                         }

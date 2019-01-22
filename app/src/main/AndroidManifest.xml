@@ -77,6 +77,7 @@
         <activity android:name=".function.modify_location.ModifyLocationActivity" />
         <activity android:name=".function.shop_detail.ShopDetailActivity" />
         <activity android:name=".function.shop_detail.goods_detail.GoodsDetailActivity" />
+        <activity android:name=".function.search_shop.SearchShopActivity" />
 
     </application>
 

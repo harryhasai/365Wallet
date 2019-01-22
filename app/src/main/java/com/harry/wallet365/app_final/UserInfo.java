@@ -20,6 +20,7 @@ public enum UserInfo {
     USER_NAME,
     SHOP_MOBILE,
     SHOP_NAME,
-    SHOP_TOKEN,
     LOCATION_HISTORY,
+    CITY,
+    CURRENT_LOCATION,
 }

@@ -61,5 +61,17 @@ public class URLFinal {
      * 获取商家的用户评价分页
      */
     public static final String GET_COMMENT_LIST = "api/seller/getCommentPage";
+    /**
+     * 附近 - 获取顶部广告图
+     */
+    public static final String NEARBY_GET_BANNER = "api/seller/getSlide";
+    /**
+     * 获取行业列表分页
+     */
+    public static final String NEARBY_GET_CATEGORY = "api/seller/getCategory";
+    /**
+     * 获取商家列表分页
+     */
+    public static final String NEARBY_GET_SHOP_LIST = "api/seller/getSellerPage";
 
 }
