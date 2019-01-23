@@ -74,7 +74,7 @@ public class GoodsListFragment extends BaseFragment<GoodsListPresenter> {
     }
 
     private void initRecyclerView() {
-// 设置下拉进度的背景颜色，默认就是白色的
+        // 设置下拉进度的背景颜色，默认就是白色的
         swipeRefreshLayout.setProgressBackgroundColorSchemeResource(android.R.color.white);
         // 设置下拉进度的主题颜色
         swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimary, R.color.colorPrimaryDark);

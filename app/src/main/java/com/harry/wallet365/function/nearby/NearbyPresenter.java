@@ -27,7 +27,7 @@ public class NearbyPresenter extends BasePresenter<NearbyFragment> {
         model.getBanner(location, new Observer<NearbyBannerEntity>() {
             @Override
             public void onSubscribe(Disposable d) {
-                DisposableManager.get().add(DisposableFinal.NEADBY_FRAGMENT_GET_BANNER, d);
+                DisposableManager.get().add(DisposableFinal.NEARBY_FRAGMENT_GET_BANNER, d);
             }
 
             @Override
@@ -55,7 +55,7 @@ public class NearbyPresenter extends BasePresenter<NearbyFragment> {
         model.getCategory(new Observer<NearbyCategoryEntity>() {
             @Override
             public void onSubscribe(Disposable d) {
-                DisposableManager.get().add(DisposableFinal.NEADBY_FRAGMENT_GET_CATEGORY, d);
+                DisposableManager.get().add(DisposableFinal.NEARBY_FRAGMENT_GET_CATEGORY, d);
             }
 
             @Override
@@ -83,7 +83,7 @@ public class NearbyPresenter extends BasePresenter<NearbyFragment> {
         model.getShopList(location, pageNum, new Observer<NearbyShopListEntity>() {
             @Override
             public void onSubscribe(Disposable d) {
-                DisposableManager.get().add(DisposableFinal.NEADBY_FRAGMENT_GET_SHOP_LIST, d);
+                DisposableManager.get().add(DisposableFinal.NEARBY_FRAGMENT_GET_SHOP_LIST, d);
             }
 
             @Override

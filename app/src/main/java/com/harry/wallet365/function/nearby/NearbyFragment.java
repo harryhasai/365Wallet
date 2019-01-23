@@ -86,9 +86,9 @@ public class NearbyFragment extends BaseFragment<NearbyPresenter> {
     @Override
     protected ArrayList<Object> cancelNetWork() {
         ArrayList<Object> tags = new ArrayList<>();
-        tags.add(DisposableFinal.NEADBY_FRAGMENT_GET_BANNER);
-        tags.add(DisposableFinal.NEADBY_FRAGMENT_GET_CATEGORY);
-        tags.add(DisposableFinal.NEADBY_FRAGMENT_GET_SHOP_LIST);
+        tags.add(DisposableFinal.NEARBY_FRAGMENT_GET_BANNER);
+        tags.add(DisposableFinal.NEARBY_FRAGMENT_GET_CATEGORY);
+        tags.add(DisposableFinal.NEARBY_FRAGMENT_GET_SHOP_LIST);
         return tags;
     }
 
