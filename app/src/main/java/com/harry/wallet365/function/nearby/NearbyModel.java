@@ -52,7 +52,7 @@ public class NearbyModel extends BaseModel {
 
         params.put("location", location);
         params.put("page", String.valueOf(pageNum));
-        params.put("size", "10");
+        params.put("size", "1");
 
         service.getShopList(URLFinal.NEARBY_GET_SHOP_LIST, params)
                 .subscribeOn(Schedulers.io())

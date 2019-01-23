@@ -143,12 +143,13 @@ public class NearbyFragment extends BaseFragment<NearbyPresenter> {
                 adapter.loadMoreComplete();
             } else {
                 adapter.setShopListData(data);
+                adapter.setPreLoadNumber(1);
             }
             adapter.setEnableLoadMore(true);
         } else {
             adapter.loadMoreEnd();
         }
-        isShopList = true;
+//        isShopList = true;
     }
 
     private void initRecyclerView() {
@@ -176,7 +177,7 @@ public class NearbyFragment extends BaseFragment<NearbyPresenter> {
         adapter = new NearbyAdapter(multiItems);
         recyclerView.setAdapter(adapter);
 
-        adapter.setPreLoadNumber(1);
+//        adapter.setPreLoadNumber(1);
         adapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
@@ -219,6 +220,8 @@ public class NearbyFragment extends BaseFragment<NearbyPresenter> {
                     mPresenter.getCategory();
                 }
                 if (!isShopList) {
+                    pageNum = 1;
+                    isLoadMore = false;
                     mPresenter.getShopList(location, pageNum);
                 }
             }

@@ -78,6 +78,7 @@
         <activity android:name=".function.shop_detail.ShopDetailActivity" />
         <activity android:name=".function.shop_detail.goods_detail.GoodsDetailActivity" />
         <activity android:name=".function.search_shop.SearchShopActivity" />
+        <activity android:name=".function.nearby.shop_list.ShopListActivity" />
 
     </application>
 

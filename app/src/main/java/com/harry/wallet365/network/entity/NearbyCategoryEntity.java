@@ -1,5 +1,6 @@
 package com.harry.wallet365.network.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public class NearbyCategoryEntity {
         public int pageSize;
         public List<ListBean> list;
 
-        public static class ListBean {
+        public static class ListBean implements Serializable {
             /**
              * cover : 123
              * name : 日用

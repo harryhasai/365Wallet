@@ -13,6 +13,7 @@ import com.harry.wallet365.R;
 import com.harry.wallet365.app_final.UserInfo;
 import com.harry.wallet365.function.home.BannerImageLoader;
 import com.harry.wallet365.function.home.HomeMultiItem;
+import com.harry.wallet365.function.nearby.shop_list.ShopListActivity;
 import com.harry.wallet365.function.shop_detail.ShopDetailActivity;
 import com.harry.wallet365.function.web_page.WebViewPageActivity;
 import com.harry.wallet365.network.entity.NearbyBannerEntity;
@@ -154,6 +155,24 @@ public class NearbyAdapter extends BaseMultiItemQuickAdapter<NearbyMultiItem, Ba
 
     public void setCategoryData(NearbyCategoryEntity.DataBean data) {
         categoryAdapter.setNewData(data.list);
+
+        final ArrayList<String> categoryNames = new ArrayList<>();
+        final ArrayList<Integer> categoryIds = new ArrayList<>();
+        for (int i = 0; i < data.list.size(); i++) {
+            categoryIds.add(data.list.get(i).id);
+            categoryNames.add(data.list.get(i).name);
+        }
+
+        categoryAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(mContext, ShopListActivity.class);
+                intent.putIntegerArrayListExtra("ids", categoryIds);
+                intent.putStringArrayListExtra("names", categoryNames);
+                intent.putExtra("position", position);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
 }
