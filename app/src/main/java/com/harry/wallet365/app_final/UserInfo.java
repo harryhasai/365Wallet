@@ -7,7 +7,7 @@ public enum UserInfo {
 
     IS_LOGIN,
     /**
-     * 商家登录或者普通会员登录
+     * 商家登录(1)或者普通会员登录(2)
      */
     LOGIN_TYPE,
     TOKEN,

@@ -79,6 +79,11 @@
         <activity android:name=".function.shop_detail.goods_detail.GoodsDetailActivity" />
         <activity android:name=".function.search_shop.SearchShopActivity" />
         <activity android:name=".function.nearby.shop_list.ShopListActivity" />
+        <activity android:name=".function.setting.SettingActivity" />
+        <activity android:name=".function.modify_password.ModifyPasswordActivity" />
+        <activity android:name=".function.about.AboutActivity" />
+        <activity android:name=".function.help_center.HelpCenterActivity" />
+        <activity android:name=".function.feedback.FeedbackActivity" />
 
     </application>
 

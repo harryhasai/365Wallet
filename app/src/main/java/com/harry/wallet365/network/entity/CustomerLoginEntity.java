@@ -8,7 +8,7 @@ public class CustomerLoginEntity {
     /**
      * msg :
      * code : 200
-     * data : {"headImg":"123.jpg","level":{"shop_id":1,"create_time":"2018-12-12 20:44:43","integral":100,"name":"普通","id":1,"status":1,"is_delete":0},"sex":1,"nickname":"张三","username":"15521130663","token":"95b894c90e1e418f85ee6b5fd7379c04_h3"}
+     * data : {"headImg":"http://150.109.16.41:8086/upload/20190123/20190123102723667d93kwuGG.jpg","level":"普通","sex":0,"nickname":"哈哈","username":"18937123685","token":"36e5d022543f44f69ef7ab3fc6fca4e8_M7"}
      */
 
     public String msg;
@@ -17,39 +17,19 @@ public class CustomerLoginEntity {
 
     public static class DataBean {
         /**
-         * headImg : 123.jpg
-         * level : {"shop_id":1,"create_time":"2018-12-12 20:44:43","integral":100,"name":"普通","id":1,"status":1,"is_delete":0}
-         * sex : 1
-         * nickname : 张三
-         * username : 15521130663
-         * token : 95b894c90e1e418f85ee6b5fd7379c04_h3
+         * headImg : http://150.109.16.41:8086/upload/20190123/20190123102723667d93kwuGG.jpg
+         * level : 普通
+         * sex : 0
+         * nickname : 哈哈
+         * username : 18937123685
+         * token : 36e5d022543f44f69ef7ab3fc6fca4e8_M7
          */
 
         public String headImg;
-        public LevelBean level;
+        public String level;
         public int sex;
         public String nickname;
         public String username;
         public String token;
-
-        public static class LevelBean {
-            /**
-             * shop_id : 1
-             * create_time : 2018-12-12 20:44:43
-             * integral : 100
-             * name : 普通
-             * id : 1
-             * status : 1
-             * is_delete : 0
-             */
-
-            public int shop_id;
-            public String create_time;
-            public int integral;
-            public String name;
-            public int id;
-            public int status;
-            public int is_delete;
-        }
     }
 }

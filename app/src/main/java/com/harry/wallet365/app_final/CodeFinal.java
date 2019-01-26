@@ -30,8 +30,5 @@ public class CodeFinal {
      * 通用结果码
      */
     public static final int COMMON_RESULT_CODE = 2002;
-    /**
-     * Zxing扫码
-     */
-    public static final int SCAN_REQUEST_CODE = 2003;
+
 }

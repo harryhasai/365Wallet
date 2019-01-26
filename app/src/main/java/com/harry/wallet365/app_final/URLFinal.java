@@ -73,5 +73,25 @@ public class URLFinal {
      * 获取商家列表分页
      */
     public static final String NEARBY_GET_SHOP_LIST = "api/seller/getSellerPage";
+    /**
+     * 获取会员用户信息
+     */
+    public static final String GET_USER_INFO = "api/user/getUserInfo";
+    /**
+     * 修改用户密码
+     */
+    public static final String MODIFY_PASSWORD = "api/user/update";
+    /**
+     * 关于我们
+     */
+    public static final String ABOUT = "api/info/about";
+    /**
+     * 帮助中心
+     */
+    public static final String HELP_CENTER = "api/info/help";
+    /**
+     * 意见反馈
+     */
+    public static final String FEEDBACK = "api/info/feedback";
 
 }
