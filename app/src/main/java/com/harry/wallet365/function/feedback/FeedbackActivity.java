@@ -75,6 +75,7 @@ public class FeedbackActivity extends BaseActivity<FeedbackPresenter> {
                 String phone = etPhone.getText().toString().trim();
                 if (TextUtils.isEmpty(content)) {
                     ToastUtils.showShort("请填写详细问题");
+
                     return;
                 }
                 if (TextUtils.isEmpty(phone)) {
