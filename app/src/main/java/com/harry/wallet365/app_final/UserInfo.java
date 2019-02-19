@@ -23,4 +23,11 @@ public enum UserInfo {
     LOCATION_HISTORY,
     CITY,
     CURRENT_LOCATION,
+    /**
+     * 底部导航栏的颜色<br>
+     * 1 - 红色
+     * 2 - 黑色
+     * 3 - 黄色
+     */
+    BOTTOM_NAVIGATION_ICON_COLOR,
 }

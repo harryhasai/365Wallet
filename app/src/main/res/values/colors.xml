@@ -19,4 +19,7 @@
     <color name="f0f0f0">#f0f0f0</color>
     <color name="red">#f00</color>
     <color name="red1">#b73432</color>
+    <color name="tab_select_red">#E8210E</color>
+    <color name="tab_select_yellow">#FFCC33</color>
+    <color name="tab_select_black">#333333</color>
 </resources>

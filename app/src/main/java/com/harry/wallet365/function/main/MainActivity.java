@@ -35,18 +35,34 @@ public class MainActivity extends BaseActivity {
             R.drawable.ic_main1_unselect, R.drawable.ic_main2_unselect,
             R.drawable.ic_main3_unselect_customer, /*R.drawable.ic_main4_unselect,*/
             R.drawable.ic_main5_unselect};
-    private int[] mCustomerIconSelectIds = {
+    private int[] mCustomerIconSelectIdsRed = {
             R.drawable.ic_main1_red, R.drawable.ic_main2_red,
             R.drawable.ic_main3_red_customer, /*R.drawable.ic_main4_red,*/
             R.drawable.ic_main5_red};
+    private int[] mCustomerIconSelectIdsBlack = {
+            R.drawable.ic_main1_black, R.drawable.ic_main2_black,
+            R.drawable.ic_main3_black_customer, /*R.drawable.ic_main4_black,*/
+            R.drawable.ic_main5_black};
+    private int[] mCustomerIconSelectIdsYellow = {
+            R.drawable.ic_main1_yellow, R.drawable.ic_main2_yellow,
+            R.drawable.ic_main3_yellow_customer, /*R.drawable.ic_main4_yellow,*/
+            R.drawable.ic_main5_yellow};
     private int[] mShopIconUnSelectIds = {
             R.drawable.ic_main1_unselect, R.drawable.ic_main2_unselect,
             R.drawable.ic_main3_unselect_shop, /*R.drawable.ic_main4_unselect,*/
             R.drawable.ic_main5_unselect};
-    private int[] mShopIconSelectIds = {
+    private int[] mShopIconSelectIdsRed = {
             R.drawable.ic_main1_red, R.drawable.ic_main2_red,
             R.drawable.ic_main3_red_shop, /*R.drawable.ic_main4_red,*/
             R.drawable.ic_main5_red};
+    private int[] mShopIconSelectIdsBlack = {
+            R.drawable.ic_main1_black, R.drawable.ic_main2_black,
+            R.drawable.ic_main3_black_shop, /*R.drawable.ic_main4_black,*/
+            R.drawable.ic_main5_black};
+    private int[] mShopIconSelectIdsYellow = {
+            R.drawable.ic_main1_yellow, R.drawable.ic_main2_yellow,
+            R.drawable.ic_main3_yellow_shop, /*R.drawable.ic_main4_yellow,*/
+            R.drawable.ic_main5_yellow};
 
     @Override
     protected int setupView() {
@@ -73,24 +89,93 @@ public class MainActivity extends BaseActivity {
     private void initTabLayout() {
         int type = SPUtils.getInt(UserInfo.LOGIN_TYPE.name(), 0);
 
-        ArrayList<CustomTabEntity> tabList = new ArrayList<>();
         ArrayList<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new HomeFragment());
         fragmentList.add(new NearbyFragment());
         if (type == 1) {    //商家登录
-            for (int i = 0; i < mCustomerTitles.length; i++) {
-                tabList.add(new TabEntity(mShopTitles[i], mShopIconSelectIds[i], mShopIconUnSelectIds[i]));
-            }
             fragmentList.add(new CashFragment());
-        } else if (type == 2){  //普通用户登录
-            for (int i = 0; i < mCustomerTitles.length; i++) {
-                tabList.add(new TabEntity(mCustomerTitles[i], mCustomerIconSelectIds[i], mCustomerIconUnSelectIds[i]));
-            }
+        } else if (type == 2) {  //普通用户登录
             fragmentList.add(new DiscountFragment());
         }
 //        fragmentList.add(new ShoppingFragment());
         fragmentList.add(new MineFragment());
-        tabLayout.setTabData(tabList, this, R.id.fl_container, fragmentList);
+        tabLayout.setTabData(getTabList(), this, R.id.fl_container, fragmentList);
+    }
+
+    /**
+     * 重新设置底部导航栏的图标
+     */
+    public void setBottomNavigationIconColor() {
+        tabLayout.setTabData(getTabList());
+        tabLayout.notifyDataSetChanged();
+    }
+
+    /**
+     * 设置底部导航栏Icon
+     */
+    private ArrayList<CustomTabEntity> getTabList() {
+        int type = SPUtils.getInt(UserInfo.LOGIN_TYPE.name(), 0);
+        //1 - 红色 2 - 黑色 3 - 黄色
+        int navigationColor = SPUtils.getInt(UserInfo.BOTTOM_NAVIGATION_ICON_COLOR.name(), 0);
+
+        ArrayList<CustomTabEntity> tabList = new ArrayList<>();
+
+        if (type == 1) {    //商家登录
+            switch (navigationColor) {//1 - 红色 2 - 黑色 3 - 黄色
+                case 1:
+                    for (int i = 0; i < mCustomerTitles.length; i++) {
+                        tabList.add(new TabEntity(mShopTitles[i], mShopIconSelectIdsRed[i], mShopIconUnSelectIds[i]));
+                    }
+                    tabLayout.setTextSelectColor(getResources().getColor(R.color.tab_select_red));
+                    break;
+                case 2:
+                    for (int i = 0; i < mCustomerTitles.length; i++) {
+                        tabList.add(new TabEntity(mShopTitles[i], mShopIconSelectIdsBlack[i], mShopIconUnSelectIds[i]));
+                    }
+                    tabLayout.setTextSelectColor(getResources().getColor(R.color.tab_select_black));
+                    break;
+                case 3:
+                    for (int i = 0; i < mCustomerTitles.length; i++) {
+                        tabList.add(new TabEntity(mShopTitles[i], mShopIconSelectIdsYellow[i], mShopIconUnSelectIds[i]));
+                    }
+                    tabLayout.setTextSelectColor(getResources().getColor(R.color.tab_select_yellow));
+                    break;
+                default:
+                    for (int i = 0; i < mCustomerTitles.length; i++) {
+                        tabList.add(new TabEntity(mShopTitles[i], mShopIconSelectIdsRed[i], mShopIconUnSelectIds[i]));
+                    }
+                    tabLayout.setTextSelectColor(getResources().getColor(R.color.tab_select_red));
+                    break;
+            }
+        } else if (type == 2) {  //普通用户登录
+            switch (navigationColor) {//1 - 红色 2 - 黑色 3 - 黄色
+                case 1:
+                    for (int i = 0; i < mCustomerTitles.length; i++) {
+                        tabList.add(new TabEntity(mCustomerTitles[i], mCustomerIconSelectIdsRed[i], mCustomerIconUnSelectIds[i]));
+                    }
+                    tabLayout.setTextSelectColor(getResources().getColor(R.color.tab_select_red));
+                    break;
+                case 2:
+                    for (int i = 0; i < mCustomerTitles.length; i++) {
+                        tabList.add(new TabEntity(mCustomerTitles[i], mCustomerIconSelectIdsBlack[i], mCustomerIconUnSelectIds[i]));
+                    }
+                    tabLayout.setTextSelectColor(getResources().getColor(R.color.tab_select_black));
+                    break;
+                case 3:
+                    for (int i = 0; i < mCustomerTitles.length; i++) {
+                        tabList.add(new TabEntity(mCustomerTitles[i], mCustomerIconSelectIdsYellow[i], mCustomerIconUnSelectIds[i]));
+                    }
+                    tabLayout.setTextSelectColor(getResources().getColor(R.color.tab_select_yellow));
+                    break;
+                default:
+                    for (int i = 0; i < mCustomerTitles.length; i++) {
+                        tabList.add(new TabEntity(mCustomerTitles[i], mCustomerIconSelectIdsRed[i], mCustomerIconUnSelectIds[i]));
+                    }
+                    tabLayout.setTextSelectColor(getResources().getColor(R.color.tab_select_red));
+                    break;
+            }
+        }
+        return tabList;
     }
 
     private class TabEntity implements CustomTabEntity {

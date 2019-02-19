@@ -84,6 +84,7 @@
         <activity android:name=".function.about.AboutActivity" />
         <activity android:name=".function.help_center.HelpCenterActivity" />
         <activity android:name=".function.feedback.FeedbackActivity" />
+        <activity android:name=".function.skin.SkinActivity" />
 
     </application>
 

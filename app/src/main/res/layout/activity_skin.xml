@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/fl_red"
+            android:layout_width="0dp"
+            android:layout_height="178dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_skin_red">
+
+            <FrameLayout
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/shape_skin_checked_bg">
+
+                <CheckBox
+                    android:id="@+id/cb_red"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/selector_skin"
+                    android:button="@null"
+                    android:enabled="false" />
+            </FrameLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_yellow"
+            android:layout_width="0dp"
+            android:layout_height="178dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="23dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_skin_yellow">
+
+            <FrameLayout
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/shape_skin_checked_bg">
+
+                <CheckBox
+                    android:id="@+id/cb_yellow"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/selector_skin"
+                    android:button="@null"
+                    android:enabled="false" />
+            </FrameLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_black"
+            android:layout_width="0dp"
+            android:layout_height="178dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_skin_black">
+
+            <FrameLayout
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/shape_skin_checked_bg">
+
+                <CheckBox
+                    android:id="@+id/cb_black"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/selector_skin"
+                    android:button="@null"
+                    android:enabled="false" />
+            </FrameLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/shape_coupon_button_red"
+            android:text="替换当前皮肤"
+            android:textColor="#ffffffff"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+    </FrameLayout>
+</LinearLayout>

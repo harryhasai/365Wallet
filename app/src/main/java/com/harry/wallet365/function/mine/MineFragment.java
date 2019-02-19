@@ -10,10 +10,13 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.harry.wallet365.R;
+import com.harry.wallet365.app_final.CodeFinal;
 import com.harry.wallet365.app_final.DisposableFinal;
 import com.harry.wallet365.app_final.UserInfo;
 import com.harry.wallet365.base.BaseFragment;
+import com.harry.wallet365.function.main.MainActivity;
 import com.harry.wallet365.function.setting.SettingActivity;
+import com.harry.wallet365.function.skin.SkinActivity;
 import com.harry.wallet365.network.entity.UserInfoEntity;
 import com.harry.wallet365.utils.SPUtils;
 
@@ -123,6 +126,7 @@ public class MineFragment extends BaseFragment<MinePresenter> {
             case R.id.fl_receiving_address://收货地址
                 break;
             case R.id.fl_skin_setting://皮肤设置
+                startActivityForResult(new Intent(mActivity, SkinActivity.class), CodeFinal.COMMON_REQUEST_CODE);
                 break;
             case R.id.fl_setting://设置
                 startActivity(new Intent(mActivity, SettingActivity.class));
@@ -160,5 +164,14 @@ public class MineFragment extends BaseFragment<MinePresenter> {
 
         tvUsername.setText(data.nickname);
         tvUserID.setText(data.idCard);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CodeFinal.COMMON_REQUEST_CODE && resultCode == CodeFinal.COMMON_RESULT_CODE) {
+            MainActivity mainActivity = (MainActivity) mActivity;
+            mainActivity.setBottomNavigationIconColor();
+        }
     }
 }
