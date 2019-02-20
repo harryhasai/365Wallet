@@ -14,6 +14,7 @@ import com.harry.wallet365.app_final.CodeFinal;
 import com.harry.wallet365.app_final.DisposableFinal;
 import com.harry.wallet365.app_final.UserInfo;
 import com.harry.wallet365.base.BaseFragment;
+import com.harry.wallet365.function.address.AddressActivity;
 import com.harry.wallet365.function.main.MainActivity;
 import com.harry.wallet365.function.setting.SettingActivity;
 import com.harry.wallet365.function.skin.SkinActivity;
@@ -124,6 +125,7 @@ public class MineFragment extends BaseFragment<MinePresenter> {
             case R.id.fl_merchant_entry://商家入驻
                 break;
             case R.id.fl_receiving_address://收货地址
+                startActivity(new Intent(mActivity, AddressActivity.class));
                 break;
             case R.id.fl_skin_setting://皮肤设置
                 startActivityForResult(new Intent(mActivity, SkinActivity.class), CodeFinal.COMMON_REQUEST_CODE);

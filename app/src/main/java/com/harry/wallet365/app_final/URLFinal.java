@@ -93,5 +93,25 @@ public class URLFinal {
      * 意见反馈
      */
     public static final String FEEDBACK = "api/info/feedback";
+    /**
+     * 获取收货地址列表
+     */
+    public static final String GET_ADDRESS_LIST = "api/address/getAddressPage";
+    /**
+     * 删除收货地址信息
+     */
+    public static final String DELETE_ADDRESS = "api/address/delete";
+    /**
+     * 获取收货地址详情
+     */
+    public static final String GET_ADDRESS_INFO = "api/address/getInfo";
+    /**
+     * 添加收货地址信息
+     */
+    public static final String ADD_ADDRESS = "api/address/add";
+    /**
+     * 修改收货地址信息
+     */
+    public static final String UPDATE_ADDRESS = "api/address/update";
 
 }
