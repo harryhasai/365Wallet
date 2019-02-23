@@ -141,5 +141,13 @@ public class URLFinal {
      * 更新银行卡信息
      */
     public static final String UPDATE_BANK_INFO = "api/bank/update";
+    /**
+     * 修改账号密码信息
+     */
+    public static final String UPDATE_X_PUB = "api/xpub/update";
+    /**
+     * 获取账号密码信息
+     */
+    public static final String GET_X_PUB = "api/xpub/getInfo";
 
 }
