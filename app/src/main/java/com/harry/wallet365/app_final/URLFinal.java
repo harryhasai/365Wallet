@@ -129,5 +129,17 @@ public class URLFinal {
      * 商家入驻
      */
     public static final String MERCHANT_ENTRY = "api/user/toSeller";
+    /**
+     * 获取银行卡信息
+     */
+    public static final String MY_BANK_INFO = "api/bank/getInfo";
+    /**
+     * 新增银行卡信息
+     */
+    public static final String ADD_BANK_INFO = "api/bank/add";
+    /**
+     * 更新银行卡信息
+     */
+    public static final String UPDATE_BANK_INFO = "api/bank/update";
 
 }

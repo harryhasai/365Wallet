@@ -84,6 +84,9 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
         mPresenter.getBanner();
         mPresenter.getBottomList(pageNum);
 
+        //优先显示默认信息
+        mPresenter.getCoupon(SPUtils.getString(UserInfo.CURRENT_LOCATION.name(), "0,0"));
+        tvLocation.setText(SPUtils.getString(UserInfo.CITY.name(), ""));
         initLocation();
     }
 

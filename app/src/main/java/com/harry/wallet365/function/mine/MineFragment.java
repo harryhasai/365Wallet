@@ -17,6 +17,7 @@ import com.harry.wallet365.base.BaseFragment;
 import com.harry.wallet365.function.address.AddressActivity;
 import com.harry.wallet365.function.main.MainActivity;
 import com.harry.wallet365.function.merchant_entry.MerchantEntryActivity;
+import com.harry.wallet365.function.my_bank_card.MyBankCardActivity;
 import com.harry.wallet365.function.recommend.RecommendActivity;
 import com.harry.wallet365.function.setting.SettingActivity;
 import com.harry.wallet365.function.skin.SkinActivity;
@@ -131,6 +132,7 @@ public class MineFragment extends BaseFragment<MinePresenter> {
             case R.id.fl_my_account://我的xPUB账号
                 break;
             case R.id.fl_my_bank_card://我的银行卡
+                startActivity(new Intent(mActivity, MyBankCardActivity.class));
                 break;
             case R.id.fl_merchant_entry://商家入驻 或者 推荐人列表
                 if (userType == 1) {

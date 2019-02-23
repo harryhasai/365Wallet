@@ -89,6 +89,8 @@
         <activity android:name=".function.address.address_detail.AddressDetailActivity" />
         <activity android:name=".function.merchant_entry.MerchantEntryActivity" />
         <activity android:name=".function.recommend.RecommendActivity" />
+        <activity android:name=".function.my_bank_card.MyBankCardActivity" />
+        <activity android:name=".function.my_bank_card.add_bank_info.AddBankInfoActivity" />
 
     </application>
 
