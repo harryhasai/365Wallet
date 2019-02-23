@@ -113,5 +113,21 @@ public class URLFinal {
      * 修改收货地址信息
      */
     public static final String UPDATE_ADDRESS = "api/address/update";
+    /**
+     * 获取获得推荐人分页
+     */
+    public static final String GET_RECOMMEND_LIST = "api/referee/getRefereePage";
+    /**
+     * 上传图片接口
+     */
+    public static final String UPLOAD_IMAGE = "api/common/uploads";
+    /**
+     * 合作协议
+     */
+    public static final String GET_AGREEMENT = "api/info/getAgree";
+    /**
+     * 商家入驻
+     */
+    public static final String MERCHANT_ENTRY = "api/user/toSeller";
 
 }

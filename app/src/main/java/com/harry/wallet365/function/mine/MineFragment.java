@@ -16,6 +16,8 @@ import com.harry.wallet365.app_final.UserInfo;
 import com.harry.wallet365.base.BaseFragment;
 import com.harry.wallet365.function.address.AddressActivity;
 import com.harry.wallet365.function.main.MainActivity;
+import com.harry.wallet365.function.merchant_entry.MerchantEntryActivity;
+import com.harry.wallet365.function.recommend.RecommendActivity;
 import com.harry.wallet365.function.setting.SettingActivity;
 import com.harry.wallet365.function.skin.SkinActivity;
 import com.harry.wallet365.network.entity.UserInfoEntity;
@@ -64,9 +66,15 @@ public class MineFragment extends BaseFragment<MinePresenter> {
     FrameLayout flSkinSetting;
     @BindView(R.id.fl_setting)
     FrameLayout flSetting;
+    @BindView(R.id.tv_merchant_entry)
+    TextView tvMerchantEntry;
     Unbinder unbinder;
 
     private boolean isDisplayed;
+    /**
+     * 商家登录(1)或者普通会员登录(2)
+     */
+    private int userType;
 
     @Override
     protected int setupView() {
@@ -77,11 +85,13 @@ public class MineFragment extends BaseFragment<MinePresenter> {
     protected void initView(View view) {
         unbinder = ButterKnife.bind(this, view);
 
-        int userType = SPUtils.getInt(UserInfo.LOGIN_TYPE.name(), 0);
+        userType = SPUtils.getInt(UserInfo.LOGIN_TYPE.name(), 0);
         if (userType == 1) {
             tvUserType.setVisibility(View.GONE);
+            tvMerchantEntry.setText("推荐人列表");
         } else if (userType == 2) {
             tvUserType.setVisibility(View.VISIBLE);
+            tvMerchantEntry.setText("商家入驻");
         }
 
 
@@ -122,7 +132,12 @@ public class MineFragment extends BaseFragment<MinePresenter> {
                 break;
             case R.id.fl_my_bank_card://我的银行卡
                 break;
-            case R.id.fl_merchant_entry://商家入驻
+            case R.id.fl_merchant_entry://商家入驻 或者 推荐人列表
+                if (userType == 1) {
+                    startActivity(new Intent(mActivity, RecommendActivity.class));
+                } else if (userType == 2) {
+                    startActivity(new Intent(mActivity, MerchantEntryActivity.class));
+                }
                 break;
             case R.id.fl_receiving_address://收货地址
                 startActivity(new Intent(mActivity, AddressActivity.class));

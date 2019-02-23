@@ -45,7 +45,7 @@
             android:value="d5e72db43cc19a90d9528e2760a2e65c" />
         <service android:name="com.amap.api.location.APSService" /><!--定位需要的服务-->
 
-        <!--分享需要配置的-->
+        <!--图片选择拍照-->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.harry.wallet365.fileprovider"
@@ -53,7 +53,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths_public"></meta-data>
         </provider>
 
         <activity
@@ -87,6 +87,8 @@
         <activity android:name=".function.skin.SkinActivity" />
         <activity android:name=".function.address.AddressActivity" />
         <activity android:name=".function.address.address_detail.AddressDetailActivity" />
+        <activity android:name=".function.merchant_entry.MerchantEntryActivity" />
+        <activity android:name=".function.recommend.RecommendActivity" />
 
     </application>
 

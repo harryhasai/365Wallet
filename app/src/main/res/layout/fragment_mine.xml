@@ -228,6 +228,7 @@
             android:background="@drawable/layer_list_bottom_line">
 
             <TextView
+                android:id="@+id/tv_merchant_entry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

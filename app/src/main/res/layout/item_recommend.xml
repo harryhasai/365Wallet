@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@color/white"
+    android:paddingStart="16dp"
+    android:paddingTop="21dp"
+    android:paddingEnd="15dp"
+    android:paddingBottom="19dp"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/tv_user_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:text="ID：122541254"
+        android:textColor="#ff333333"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_user_ID"
+        android:layout_marginTop="16dp"
+        android:includeFontPadding="false"
+        android:text="注册时间：20180810 10:20"
+        android:textColor="#ff999999"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:includeFontPadding="false"
+        android:text="3000"
+        android:textColor="#E8210E"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/tv_points"
+        android:text="累计获得积分  "
+        android:textColor="#ff666666"
+        android:textSize="13sp" />
+</RelativeLayout>
