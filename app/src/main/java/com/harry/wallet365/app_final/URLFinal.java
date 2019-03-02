@@ -7,7 +7,8 @@ public class URLFinal {
     /**
      * BaseUrl
      */
-    public static final String BASE_URL = "http://150.109.16.41:9000/";
+//    public static final String BASE_URL = "http://150.109.16.41:9000/";
+    public static final String BASE_URL = "http://qg6962.natappfree.cc/";
 
     /**
      * 登录

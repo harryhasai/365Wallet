@@ -75,7 +75,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends BaseFragment
         }
     }
 
-    protected void showLoginDialog(final Context context) {
+    public void showLoginDialog(final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage("登录失效, 是否重新登录");
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {

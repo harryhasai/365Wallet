@@ -92,6 +92,7 @@
         <activity android:name=".function.my_bank_card.MyBankCardActivity" />
         <activity android:name=".function.my_bank_card.add_bank_info.AddBankInfoActivity" />
         <activity android:name=".function.x_pub.XPubActivity" />
+        <activity android:name=".function.my_coupon.MyCouponActivity" />
 
     </application>
 

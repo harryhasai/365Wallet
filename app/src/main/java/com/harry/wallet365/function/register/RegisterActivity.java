@@ -10,13 +10,19 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.ToastUtils;
 import com.harry.wallet365.R;
 import com.harry.wallet365.app_final.DisposableFinal;
+import com.harry.wallet365.app_final.URLFinal;
 import com.harry.wallet365.base.BaseActivity;
+import com.harry.wallet365.utils.OkHttpHelper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by Harry on 2019/1/10.
@@ -112,6 +118,17 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> {
             return;
         }
         mPresenter.register(phone, password, verificationCode, recommendationCode);
+//        OkHttpHelper.post(URLFinal.BASE_URL + URLFinal.REGISTER, params, new Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//
+//            }
+//        });
     }
 
     /**
